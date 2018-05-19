@@ -46,6 +46,11 @@ describe("Game", function() {
       game.roll(6);
       expect(game.isSpare()).toBe(true);
     });
+    it("returns true if the game is spare - more checks", function() {
+      game.roll(0);
+      game.roll(10);
+      expect(game.isSpare()).toBe(true);
+    });
   });
 
 });
