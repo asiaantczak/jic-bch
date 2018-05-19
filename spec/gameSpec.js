@@ -26,6 +26,12 @@ describe("Game", function() {
       game.addAFrame([2, 4]);
       expect(game.frames).toEqual([[2, 4]]);
     });
+
+    it("cannot add more than 10 frames", function() {
+      game.frames.length = 10
+      game.addAFrame([1, 3]);
+      expect(game.frames.length).toEqual(10);
+    });
   });
 
 

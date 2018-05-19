@@ -15,5 +15,7 @@ Game.prototype.roll = function(pins) {
 
 
 Game.prototype.addAFrame = function(frame) {
-  this.frames.push(frame);
+  if(this.frames.length < 10) {
+    this.frames.push(frame);
+  }
 }
