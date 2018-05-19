@@ -17,6 +17,14 @@ describe("Game", function() {
     it("can knock max of 10 pins in one roll", function() {
       expect(function() { game.roll(11) }).toThrow("There is max of 10 pins to knock");
     });
+
+    it("cannot roll more than 2 times", function() {
+      game.roll(5);
+      game.roll(3);
+      game.roll(1);
+      expect(game.frame.length).toEqual(2);
+      expect(game.frame).toEqual[5,3];
+    });
   });
 
   describe("addAFrame", function() {
@@ -31,6 +39,15 @@ describe("Game", function() {
       game.frames.length = 10
       game.addAFrame([1, 3]);
       expect(game.frames.length).toEqual(10);
+    });
+  });
+
+  describe("resetFrame", function() {
+    it("resets frame once it is added to frames", function() {
+      game.roll(3);
+      game.roll(5);
+      game.addAFrame([3,5]);
+      expect(game.frame).toEqual([]);
     });
   });
 
