@@ -26,3 +26,11 @@ Game.prototype.isStrike = function() {
     return false;
   }
 };
+
+Game.prototype.isSpare = function() {
+  if (this.frame[0] + this.frame[1] === 10) {
+    return true;
+  } else {
+    return false;
+  }
+};

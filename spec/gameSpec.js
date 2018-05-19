@@ -37,7 +37,15 @@ describe("Game", function() {
     it("returns true if the frame is strike", function() {
       game.roll(10);
       expect(game.isStrike()).toBe(true);
-    })
+    });
+  });
+
+  describe("isSpare", function() {
+    it("returns true if the frame is a spare", function() {
+      game.roll(4);
+      game.roll(6);
+      expect(game.isSpare()).toBe(true);
+    });
   });
 
 });
