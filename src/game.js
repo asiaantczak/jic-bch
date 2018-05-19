@@ -18,3 +18,11 @@ Game.prototype.addAFrame = function(frame) {
 Game.prototype.resetFrame = function(frame) {
   this.frame = []
 };
+
+Game.prototype.isStrike = function() {
+  if (this.frame[0] === 10) {
+    return true;
+  } else {
+    return false;
+  }
+};

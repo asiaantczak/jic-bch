@@ -33,5 +33,11 @@ describe("Game", function() {
     });
   });
 
+  describe("isStrike", function() {
+    it("returns true if the frame is strike", function() {
+      game.roll(10);
+      expect(game.isStrike()).toBe(true);
+    })
+  });
 
 });
