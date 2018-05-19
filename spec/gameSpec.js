@@ -38,6 +38,12 @@ describe("Game", function() {
       game.roll(10);
       expect(game.isStrike()).toBe(true);
     });
+    it("returns false if the frame is not a strike", function() {
+      game.roll(0);
+      game.roll(10);
+      expect(game.isStrike()).toBe(false);
+    });
+
   });
 
   describe("isSpare", function() {
