@@ -19,7 +19,7 @@ describe("Game", function() {
     it("adds a frame to frames when frame ends", function() {
       game.roll(2);
       game.roll(4);
-      game.addAFrame([2, 4]);
+      game.addAFrame();
       expect(game.frames).toEqual([[2, 4]]);
     });
   });
@@ -28,7 +28,7 @@ describe("Game", function() {
     it("resets frame once it is added to frames", function() {
       game.roll(3);
       game.roll(5);
-      game.addAFrame([3,5]);
+      game.addAFrame();
       expect(game.frame).toEqual([]);
     });
   });
@@ -61,10 +61,36 @@ describe("Game", function() {
 
   describe("calculateFramePoints", function() {
     it("calculates points for frame", function() {
-      debugger;
       game.roll(3);
       game.roll(5);
       expect(game.calculateFramePoints()).toEqual(8);
+    });
+  });
+
+  describe("calculateBonus", function() {
+    it("calculates bonus points for 1 strike", function() {
+      game.roll(10);
+      game.addAFrame();
+      game.roll(2);
+      game.roll(3);
+      expect(game.calculateBonusForStrike()).toEqual(5);
+    });
+    it("calculates bonus points for triple strike", function() {
+      game.roll(10);
+      game.addAFrame();
+      game.roll(10);
+      game.addAFrame();
+      game.roll(10);
+      expect(game.calculateBonusForStrike()).toEqual(20);
+    });
+    it("calculates bonus for double strike", function() {
+      game.roll(10);
+      game.addAFrame();
+      game.roll(10);
+      game.addAFrame();
+      game.roll(3);
+      game.roll(4);
+      expect(game.calculateBonusForStrike()).toEqual(13);
     });
   });
 

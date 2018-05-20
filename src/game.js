@@ -10,8 +10,8 @@ Game.prototype.roll = function(pins) {
 };
 
 
-Game.prototype.addAFrame = function(frame) {
-    this.frames.push(frame);
+Game.prototype.addAFrame = function() {
+    this.frames.push(this.frame);
     this.resetFrame();
 };
 
@@ -36,5 +36,15 @@ Game.prototype.isSpare = function() {
 };
 
 Game.prototype.calculateFramePoints = function() {
-  return this.frame.reduce(function(sum, val) {return sum + val});
+  return this.frame.reduce(function(sum, val) { return sum + val });
+};
+
+Game.prototype.calculateBonusForStrike = function() {
+  if (this.frames[this.frames.length - 1][0] === 10 && this.frame[0] === 10) {
+    return (this.frames[this.frames.length-1][0] + this.frame[0]);
+  } else if (this.frames[this.frames.length - 1][0] === 10 && this.frame[0] != 10) {
+    return (this.frames[this.frames.length - 1][0] + this.frame[0]);
+  } else {
+    return this.frame.reduce(function(sum, val) { return sum + val });
+  }
 };
