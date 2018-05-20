@@ -1,5 +1,5 @@
 describe("Game", function() {
-  debugger;
+
   var game;
   const max_pins = 10;
 
@@ -58,5 +58,16 @@ describe("Game", function() {
       expect(game.isSpare()).toBe(true);
     });
   });
+
+  describe("calculateFramePoints", function() {
+    it("calculates points for frame", function() {
+      debugger;
+      game.roll(3);
+      game.roll(5);
+      expect(game.calculateFramePoints()).toEqual(8);
+    });
+  });
+
+
 
 });

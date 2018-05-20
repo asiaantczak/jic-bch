@@ -34,3 +34,7 @@ Game.prototype.isSpare = function() {
     return false;
   }
 };
+
+Game.prototype.calculateFramePoints = function() {
+  return this.frame.reduce(function(sum, val) {return sum + val});
+};
