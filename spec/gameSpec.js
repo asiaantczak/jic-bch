@@ -67,32 +67,47 @@ describe("Game", function() {
     });
   });
 
-  describe("calculateBonus", function() {
-    it("calculates bonus points for 1 strike", function() {
-      game.roll(10);
-      game.addAFrame();
-      game.roll(2);
+  describe("knows roll number", function() {
+    it("saves number of rolls", function() {
       game.roll(3);
-      expect(game.calculateBonusForStrike()).toEqual(5);
-    });
-    it("calculates bonus points for triple strike", function() {
-      game.roll(10);
-      game.addAFrame();
-      game.roll(10);
-      game.addAFrame();
-      game.roll(10);
-      expect(game.calculateBonusForStrike()).toEqual(20);
-    });
-    it("calculates bonus for double strike", function() {
-      game.roll(10);
-      game.addAFrame();
-      game.roll(10);
-      game.addAFrame();
-      game.roll(3);
+      game.addRollNumber();
       game.roll(4);
-      expect(game.calculateBonusForStrike()).toEqual(13);
+      game.addRollNumber();
+      game.roll(9);
+      game.addRollNumber();
+      game.roll(1);
+      game.addRollNumber();
+      expect(game.rollNumber).toEqual(4);
     });
   });
+
+
+  // describe("calculateBonus", function() {
+  //   it("calculates bonus points for 1 strike", function() {
+  //     game.roll(10);
+  //     game.addAFrame();
+  //     game.roll(2);
+  //     game.roll(3);
+  //     expect(game.calculateBonusForStrike()).toEqual(5);
+  //   });
+  //   it("calculates bonus points for triple strike", function() {
+  //     game.roll(10);
+  //     game.addAFrame();
+  //     game.roll(10);
+  //     game.addAFrame();
+  //     game.roll(10);
+  //     expect(game.calculateBonusForStrike()).toEqual(20);
+  //   });
+  //   it("calculates bonus for double strike", function() {
+  //     game.roll(10);
+  //     game.addAFrame();
+  //     game.roll(10);
+  //     game.addAFrame();
+  //     game.roll(3);
+  //     game.roll(4);
+  //     expect(game.calculateBonusForStrike()).toEqual(13);
+  //   });
+  // });
 
 
 
